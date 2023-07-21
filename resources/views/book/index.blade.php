@@ -2,7 +2,7 @@
   <x-slot name="title">Admin</x-slot>
   <x-slot name="header">
     <h2 class="text-xl font-semibold leading-tight text-gray-800">
-      {{ __('Item') }}
+      {{ __('Book') }}
     </h2>
   </x-slot>
 
@@ -24,16 +24,32 @@
             name: 'id',
           },
           {
+            data: 'cover',
+            name: 'cover',
+            searchable: false,
+            orderable: false,
+          },
+          {
+            data: 'file',
+            name: 'file',
+            searchable: false,
+            orderable: false,
+          },
+          {
             data: 'title',
-            name: 'title'
+            name: 'title',
           },
           {
             data: 'category.name',
             name: 'category.name',
           },
           {
-            data: 'description',
-            name: 'description',
+            // limit description to 100 characters
+            render: function(data, type, row) {
+              return row.description.length > 80 ?
+                row.description.substr(0, 80) + '…' :
+                row.description;
+            },
           },
           {
             data: 'total_books',
@@ -65,6 +81,8 @@
             <thead>
               <tr>
                 <th style="max-width: 1%">ID</th>
+                <th>Cover</th>
+                <th>File</th>
                 <th>Judul</th>
                 <th>Kategori</th>
                 <th>Deskripsi</th>

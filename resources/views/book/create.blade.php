@@ -5,7 +5,7 @@
       <a href="#!" onclick="window.history.go(-1); return false;">
         ←
       </a>
-      {!! __('Item &raquo; Buat') !!}
+      {!! __('Book &raquo; Buat') !!}
     </h2>
   </x-slot>
 
@@ -30,6 +30,32 @@
         @endif
         <form class="w-full" action="{{ route('book.store') }}" method="post" enctype="multipart/form-data">
           @csrf
+           <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+            <div class="w-full">
+              <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="grid-last-name">
+                Foto*
+              </label>
+              <input value="{{ old('cover') }}" name="cover"
+                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                     id="grid-last-name" accept="image/png, image/jpeg, image/jpg, image/webp" type="file">
+              <div class="mt-2 text-sm text-gray-500">
+                Foto Item. Lebih dari satu foto dapat diupload. Opsional
+              </div>
+            </div>
+          </div>
+           <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+            <div class="w-full">
+              <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="grid-last-name">
+                File Buku*
+              </label>
+              <input value="{{ old('file') }}" name="file"
+                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                     id="grid-last-name" accept="pdf" type="file">
+              <div class="mt-2 text-sm text-gray-500">
+                File Buku. Lebih dari satu foto dapat diupload. Opsional
+              </div>
+            </div>
+          </div>
            <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
             <div class="w-full">
               <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="grid-last-name">
