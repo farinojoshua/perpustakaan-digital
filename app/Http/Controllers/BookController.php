@@ -19,6 +19,10 @@ class BookController extends Controller
     {
         if (request()->ajax()) {
         $query = Book::with(['category']);
+        // user only can see their own book data by author_id
+        if (auth()->user()->roles == 'user') {
+            $query->where('author_id', auth()->user()->id);
+        }
 
         return DataTables::of($query)
             ->editColumn('cover', function ($book) {
@@ -36,6 +40,10 @@ class BookController extends Controller
                     <a class="block w-full px-2 py-1 mb-1 text-xs text-center text-white transition duration-500 bg-gray-700 border border-gray-700 rounded-md select-none ease hover:bg-gray-800 focus:outline-none focus:shadow-outline"
                         href="' . route('book.edit', $book->id) . '">
                         Sunting
+                    </a>
+                    <a class="block w-full px-2 py-1 mb-1 text-xs text-center text-white transition duration-500 bg-blue-600 border border-gray-700 rounded-md select-none ease hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                        href="' . route('book.detail', $book->id) . '">
+                        Detail
                     </a>
                     <form class="block w-full" onsubmit="return confirm(\'Apakah anda yakin?\');" -block" action="' . route('book.destroy', $book->id) . '" method="POST">
                     <button class="w-full px-2 py-1 text-xs text-white transition duration-500 bg-red-500 border border-red-500 rounded-md select-none ease hover:bg-red-600 focus:outline-none focus:shadow-outline" >
@@ -86,6 +94,8 @@ class BookController extends Controller
             'public'
         );
 
+        // author id from user id
+        $data['author_id'] = auth()->user()->id;
 
         $data['slug'] = Str::slug($data['title']) . '-' . Str::lower(Str::random(5));
 

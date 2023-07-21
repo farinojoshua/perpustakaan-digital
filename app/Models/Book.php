@@ -18,7 +18,8 @@ class Book extends Model
         'total_books',
         'file',
         'cover',
-        'category_id'
+        'category_id',
+        'author_id'
     ];
 
     public function category()

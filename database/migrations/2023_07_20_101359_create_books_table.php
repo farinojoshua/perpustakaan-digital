@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('total_books');
             $table->string('cover')->nullable();
             $table->string('file')->nullable();
+            $table->integer('author_id');
             $table->softDeletes();
             $table->timestamps();
         });

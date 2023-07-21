@@ -30,12 +30,6 @@
             orderable: false,
           },
           {
-            data: 'file',
-            name: 'file',
-            searchable: false,
-            orderable: false,
-          },
-          {
             data: 'title',
             name: 'title',
           },
@@ -47,7 +41,7 @@
             // limit description to 100 characters
             render: function(data, type, row) {
               return row.description.length > 80 ?
-                row.description.substr(0, 80) + '…' :
+                row.description.substr(0, 60) + '…' :
                 row.description;
             },
           },
@@ -82,7 +76,6 @@
               <tr>
                 <th style="max-width: 1%">ID</th>
                 <th>Cover</th>
-                <th>File</th>
                 <th>Judul</th>
                 <th>Kategori</th>
                 <th>Deskripsi</th>
