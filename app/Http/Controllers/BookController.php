@@ -19,16 +19,14 @@ class BookController extends Controller
     {
         if (request()->ajax()) {
         $query = Book::with(['category']);
-        // user only can see their own book data by author_id
+
         if (auth()->user()->roles == 'user') {
             $query->where('author_id', auth()->user()->id);
         }
 
         return DataTables::of($query)
             ->editColumn('cover', function ($book) {
-                // image not load
                 return '<img src="'. asset('storage/' . $book->cover) .'" alt="cover" class="w-20 mx-auto rounded-md">';
-                // return '<img src="'. $book->cover .'" alt="cover" class="w-20 mx-auto rounded-md">';
             })
             ->editColumn('file', function ($book) {
                 return '<a href="'. asset('storage/' . $book->file) .'" target="_blank" class="block w-full px-2 py-1 mb-1 text-xs text-center text-white transition duration-500 bg-blue-500 border border-blue-500 rounded-md select-none ease hover:bg-blue-600 focus:outline-none focus:shadow-outline">
@@ -55,7 +53,6 @@ class BookController extends Controller
             ->rawColumns(['action', 'cover', 'file'])
             ->make();
     }
-
 
     return view('book.index');
     }

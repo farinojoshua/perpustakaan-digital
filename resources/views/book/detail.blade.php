@@ -5,7 +5,7 @@
       <a href="#!" onclick="window.history.go(-1); return false;">
         ←
       </a>
-      {!! __('Book &raquo; Buat') !!}
+      {!! __('Book &raquo; Detail') !!}
     </h2>
   </x-slot>
 
@@ -27,11 +27,13 @@
         </p>
         {{-- download button --}}
         <a href="{{ asset('storage/' . $book->file) }}"
-           class="px-4 py-2 font-bold text-white bg-green-500 rounded shadow-lg hover:bg-green-700">
+           class="px-4 py-2 font-bold text-white bg-blue-500 rounded shadow-lg hover:bg-green-700">
           Download
         </a>
-
-
+        <a href="{{ route('book.edit', $book->id) }}"
+           class="px-4 py-2 font-bold text-white bg-gray-500 rounded shadow-lg hover:bg-green-700">
+          Edit
+        </a>
 
       </div>
     </div>
