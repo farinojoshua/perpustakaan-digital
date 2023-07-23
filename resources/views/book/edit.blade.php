@@ -73,7 +73,7 @@
                      class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                      id="grid-last-name" type="text">
               <div class="mt-2 text-sm text-gray-500">
-                Deskripsi Buku. Wajib diisi. Pisahkan dengan koma (,), Opsional
+                Deskripsi Buku. Wajib diisi.
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
                      class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                      id="grid-last-name" accept="image/png, image/jpeg, image/jpg, image/webp" type="file">
               <div class="mt-2 text-sm text-gray-500">
-                Foto Item. Lebih dari satu foto dapat diupload. Opsional
+                Foto Item.
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@
                      class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                      id="grid-last-name" accept="pdf" type="file">
               <div class="mt-2 text-sm text-gray-500">
-                File Buku. Lebih dari satu foto dapat diupload. Opsional
+                File Buku.
               </div>
             </div>
           </div>
