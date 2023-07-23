@@ -19,6 +19,10 @@
         language: {
           url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/id.json'
         },
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         columns: [{
             data: 'id',
             name: 'id',

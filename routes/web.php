@@ -17,8 +17,8 @@ use App\Http\Controllers\DetailBookController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return redirect()->route('login');
 });
 
 Route::middleware([
@@ -26,7 +26,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/category', CategoryController::class);
     Route::resource('/book', BookController::class);
     Route::get('/book/{id}/detail', [DetailBookController::class, 'index'])->name('book.detail');
